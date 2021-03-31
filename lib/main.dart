@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, //取消debug图标
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
