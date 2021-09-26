@@ -30,3 +30,8 @@ $ fvm use beta --force
 可以愉快的玩耍 flutter 了。
 
 
+
+
+dart pub upgrade --null-safety 
+dart pub upgrade
+ dart migrate
