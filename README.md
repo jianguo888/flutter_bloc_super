@@ -16,11 +16,7 @@ https://github.com/ITmxs/flutter_bloc_super
 
 ![image-20210926171758159](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210926171758159.png)
 
-### Flutter  Blog Theme using Flutter 
 
-![Preview](/gif.gif)
-
-![App UI](/ui.png)
 
 # 使用fvm版本控制
 
