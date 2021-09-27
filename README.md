@@ -284,5 +284,22 @@ flutter build web --web-renderer html
  用编辑器打开index.html,能看到源文件,把<base href="/">,改成<base href="">
 
 方法2:
- 用编辑器打开index.html,能看到源文件,把<base href="/">,改成你服务器的路径比喻说:<base href="http://192.168.1.80:3350/web/">
+ 用编辑器打开index.html,能看到源文件,把<base href="/">,改成你服务器的路径比喻说:<base href="http://你的服务器ip:0-65536/web/">
 
+然后nginx代理
+
+
+```undefined
+  #flutter
+    server {
+       listen       251 ;
+       server_name  flutterblog;
+       location / {
+           root   /root/study/flutter/web/;
+           index  index.html index.htm;
+        #    proxy_pass   http://127.0.0.1:12345;
+        #    access_log  /usr/local/nginx/logs/go.101.log ;
+
+       }
+    }
+```undefined
