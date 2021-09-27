@@ -12,7 +12,13 @@ Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持
 
 项目地址
 
+github
+
 https://github.com/ITmxs/flutter_bloc_super
+
+gitee
+
+https://gitee.com/itmxs/flutter_bloc_super
 
 主分支默认空安全
 
