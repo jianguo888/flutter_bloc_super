@@ -192,3 +192,30 @@ $ dart test       # or `flutter test`
 
  参考文章：
  https://dart.cn/null-safety/migration-guide
+
+ 迁移桌面
+ flutter config --enable-<platform>-desktop
+
+ ![image-20210927100236887](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927100236887.png)
+
+
+
+## 为现有的 Flutter 应用程序添加桌面支持
+
+要将桌面支持添加到现有 Flutter 项目，请从项目根目录在终端中运行以下命令：
+
+*内容复制*
+
+```
+$ flutter create --platforms=windows,macos,linux .
+```
+
+这会将必要的桌面文件和目录添加到您现有的 Flutter 项目中。要仅添加特定桌面平台，请将`platforms`列表更改为仅包含您要添加的平台。
+
+![image-20210927100948120](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927100948120.png)
+
+
+
+必须下载vs
+
+https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&rel=16
