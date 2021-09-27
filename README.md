@@ -2,6 +2,8 @@
 
 Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持 Web、macOS、Android 和 iOS。 这就是为什么今天我们使用在 Web、macOS 应用、Android 和 iOS 应用上运行的 flutter 创建响应式博客主题。 此外，我们创建了一个具有自定义悬停动画的动画网络菜单。 最后，您将学习如何使用 Flutter 制作响应式应用程序。
 
+预览地址：http://47.117.1.68:251/#/
+
 ![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/gif.gif)
 
 ![ui](https://luckly007.oss-cn-beijing.aliyuncs.com/image/ui.png)
@@ -192,3 +194,95 @@ $ dart test       # or `flutter test`
 
  参考文章：
  https://dart.cn/null-safety/migration-guide
+
+细心的小伙伴可能会发现,安卓有android文件夹, iOS 有ios的文件夹,但目前目录结构是没有web文件夹的,
+
+##### 2. 创建web文件夹
+
+输入下面的命令创建web文件
+
+
+
+```undefined
+flutter create .
+```
+
+然后就会创建一系列web相关的文件 ,如下图, 目录结构也会多一个web的文件夹. 如下图
+
+![image-20210927103240783](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103240783.png)
+
+##### 3. 打包web版本
+
+我们知道要给android手机用,需要打包apk出来, 要给iPhone手机用,需要打包ipa出来;同样的道理要给浏览器用,也需要打包web相关代码.
+
+```undefined
+flutter build web --web-renderer html
+
+flutter build web 
+
+flutter build web --web-renderer canvaskit
+```
+
+这将生成包括资源的应用程序，并将文件放入项目的 `/build/web` 目录中。
+
+一般的应用程序的 release 版本具有以下结构：
+
+*content_copy*
+
+```none
+/build/web
+  assets
+    AssetManifest.json
+    FontManifest.json
+    NOTICES
+    fonts
+      MaterialIcons-Regular.ttf
+      <other font files>
+    <image files>
+  index.html
+  main.dart.js
+  main.dart.js.map
+```
+
+启动 Web 服务器（例如，`python -m SimpleHTTPServer 8000`，或使用 [dhttpd](https://pub.flutter-io.cn/packages/dhttpd) package），然后打开 /build/web 目录。在浏览器中访问 `localhost:8000`（前文用 Python 启动的服务器）以查看应用程序的 release 版本。
+
+
+
+经过测试,上面三种方式都可以打包web版本, 其中第一种是针对移动端的打包方式, 第二种是一般的打包方式, 第三种是针对pc端的打包方式.
+
+那这3种方式打包出来,运行起来有什么不同呢
+
+flutter build web --web-renderer html 打开速度最快,兼容性好(是指ie,chrome,safari等浏览器兼容)
+
+![image-20210927103940311](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103940311.png)
+
+flutter build web 打开速度一般,兼容性好
+
+![image-20210927104021552](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927104021552.png)
+
+flutter build web --web-renderer canvaskit 打开速度最慢,兼容性好
+
+**结论**
+ 就是使用第一种打包方式会比较好
+
+
+
+```undefined
+flutter build web --web-renderer html
+```
+
+
+
+##### 坑2:  找到了index.html,用浏览器打开一片空白
+
+这个属于正常的, 这个不像前端web ,html css js那套,点击index.html就能访问的.  在flutter里面是不能直接访问的,一定要放到容器里面去才能访问,如:tomcat等
+
+##### 坑3:  已经放到tomcat了,用浏览器打开还是一片空白
+
+那是因为文件路径引用不对.解决办法有2种
+ 方法1:
+ 用编辑器打开index.html,能看到源文件,把<base href="/">,改成<base href="">
+
+方法2:
+ 用编辑器打开index.html,能看到源文件,把<base href="/">,改成你服务器的路径比喻说:<base href="http://192.168.1.80:3350/web/">
+
