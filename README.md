@@ -40,7 +40,7 @@ fvm use 2.5.1--force
 对于就项目我们如果想切到 fvm 的 flutter 环境，这个步骤还是非常简单的。
 在项目根路径下执行：
 $ fvm use  2.5.1--force 
-复制代码
+
 完成上面的命令，会有个 .fvm 文件夹生成，然后配置 IDE，方法同上。
 可以愉快的玩耍 flutter 了。
 
@@ -197,7 +197,7 @@ $ dart test       # or `flutter test`
 
 细心的小伙伴可能会发现,安卓有android文件夹, iOS 有ios的文件夹,但目前目录结构是没有web文件夹的,
 
-##### 2. 创建web文件夹
+##### 1. 创建web文件夹
 
 输入下面的命令创建web文件
 
@@ -211,7 +211,7 @@ flutter create .
 
 ![image-20210927103240783](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103240783.png)
 
-##### 3. 打包web版本
+##### 2. 打包web版本
 
 我们知道要给android手机用,需要打包apk出来, 要给iPhone手机用,需要打包ipa出来;同样的道理要给浏览器用,也需要打包web相关代码.
 
@@ -302,4 +302,4 @@ flutter build web --web-renderer html
 
        }
     }
-```undefined
+​```undefined
