@@ -273,11 +273,11 @@ flutter build web --web-renderer html
 
 
 
-##### 坑2:  找到了index.html,用浏览器打开一片空白
+##### 坑1:  找到了index.html,用浏览器打开一片空白
 
 这个属于正常的, 这个不像前端web ,html css js那套,点击index.html就能访问的.  在flutter里面是不能直接访问的,一定要放到容器里面去才能访问,如:tomcat等
 
-##### 坑3:  已经放到tomcat了,用浏览器打开还是一片空白
+##### 坑2:  已经用nginx代理,用浏览器打开还是一片空白
 
 那是因为文件路径引用不对.解决办法有2种
  方法1:
