@@ -11,8 +11,11 @@ Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持
 ![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/gif.gif)
 
 ![ui](https://luckly007.oss-cn-beijing.aliyuncs.com/image/ui.png)
+哔哩哔哩
 
+https://www.bilibili.com/video/bv1uy4y1t7LX
 
+https://www.bilibili.com/video/bv1uy4y1t7LX
 
 项目地址
 
