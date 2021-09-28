@@ -1,5 +1,7 @@
 # Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS,Windows
 
+[TOC]
+
 Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持 Web、macOS、Android 和 iOS。 这就是为什么今天我们使用在 Web、macOS 应用、Android 和 iOS 应用上运行的 flutter 创建响应式博客主题。 此外，我们创建了一个具有自定义悬停动画的动画网络菜单。 最后，您将学习如何使用 Flutter 制作响应式应用程序。
 
 目前已新增桌面支持
@@ -196,7 +198,7 @@ $ dart test       # or `flutter test`
 
 如果你需要对代码作出大量的更改，那么你可能需要重新对代码进行迁移。这时请先回滚代码更改，再运行迁移工具进行迁移。
 
-## 6.5发布
+# 7发布web版
 
 我们希望你完成迁移后尽快将其发布，可以作为预览版：
 
@@ -205,7 +207,7 @@ $ dart test       # or `flutter test`
 
 细心的小伙伴可能会发现,安卓有android文件夹, iOS 有ios的文件夹,但目前目录结构是没有web文件夹的,
 
-### 1. 创建web文件夹
+## 1. 创建web文件夹
 
 输入下面的命令创建web文件
 
@@ -219,7 +221,7 @@ flutter create .
 
 ![image-20210927103240783](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103240783.png)
 
-### 2. 打包web版本
+## 2. 打包web版本
 
 我们知道要给android手机用,需要打包apk出来, 要给iPhone手机用,需要打包ipa出来;同样的道理要给浏览器用,也需要打包web相关代码.
 
@@ -270,7 +272,7 @@ flutter build web 打开速度一般,兼容性好
 
 flutter build web --web-renderer canvaskit 打开速度最慢,兼容性好
 
-### 3**结论**
+## 3**结论**
 
  就是使用第一种打包方式会比较好
 
@@ -282,11 +284,11 @@ flutter build web --web-renderer html
 
 
 
-##### 坑1:  找到了index.html,用浏览器打开一片空白
+### 坑1:  找到了index.html,用浏览器打开一片空白
 
 这个属于正常的, 这个不像前端web ,html css js那套,点击index.html就能访问的.  在flutter里面是不能直接访问的,一定要放到容器里面去才能访问,如:tomcat等
 
-##### 坑2:  已经用nginx代理,用浏览器打开还是一片空白
+### 坑2:  已经用nginx代理,用浏览器打开还是一片空白
 
 那是因为文件路径引用不对.解决办法有2种
  方法1:
@@ -315,3 +317,237 @@ flutter build web --web-renderer html
 ```
 
 撒花
+
+# 8发布windows版
+
+![image-20210928095003619](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928095003619.png)
+
+我们希望你完成迁移后尽快将其发布，可以作为预览版：
+
+ 参考文章：
+ https://dart.cn/null-safety/migration-guide
+
+ 迁移桌面
+ flutter config --enable-<platform>-desktop
+
+ ![image-20210927100236887](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927100236887.png)
+
+
+
+## 1.为现有的 Flutter 应用程序添加桌面支持
+
+要将桌面支持添加到现有 Flutter 项目，请从项目根目录在终端中运行以下命令：
+
+
+
+```
+$ flutter create --platforms=windows,macos,linux .
+```
+
+这会将必要的桌面文件和目录添加到您现有的 Flutter 项目中。要仅添加特定桌面平台，请将`platforms`列表更改为仅包含您要添加的平台。
+
+![image-20210927100948120](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927100948120.png)
+
+
+
+必须下载vs
+
+https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&rel=16
+
+可以看到build目录下已经有windows
+
+![image-20210928082949206](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928082949206.png)
+
+
+
+## 2..创建main_desktop.dart文件
+
+比如我的main.dart文件是这样的
+
+
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:news/screens/main/main_screen.dart';
+
+import 'constants.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false, //取消debug图标
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBgColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kBodyTextColor),
+          bodyText2: TextStyle(color: kBodyTextColor),
+          headline5: TextStyle(color: kDarkBlackColor),
+        ),
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
+```
+
+
+
+
+
+
+
+那么我的main_desktop.dart文件就是这样的
+
+```
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:news/screens/main/main_screen.dart';
+import 'package:flutter/foundation.dart' show debugDefaultTargetPlatformOverride;
+import 'constants.dart';
+
+void main() {
+debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;//这句话很关键
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false, //取消debug图标
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBgColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kBodyTextColor),
+          bodyText2: TextStyle(color: kBodyTextColor),
+          headline5: TextStyle(color: kDarkBlackColor),
+        ),
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
+```
+
+
+
+
+
+flutter和go都是google出品，如何安装做一下不做介绍
+
+## 3.hover安装和环境配置
+
+
+
+```go
+go get -u github.com/go-flutter-desktop/hover
+```
+
+稍等会hover就会出现在go语言的SDK下面的bin文件夹下
+
+
+
+
+
+![image-20210928084124073](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084124073.png)
+
+
+
+你又会发现报错：**exec: "gcc": executable file not found in %PATH%**这是缺少一个环境变量，别急，补上去，
+ [https://sourceforge.net/projects/mingw-w64/files/mingw-w64/](https://sourceforge.net/projects/mingw-w64/)
+
+![image-20210928084641518](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084641518.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-b7dac57c19c30e55.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928085519691.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-b2b7d701a6690d4f.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+
+
+![image-20210928084842376](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084842376.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-d2ab630b0dee3abe.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+
+ 安装过程会下载很多东西，都到这一步了，不要放弃，接下来配置环境变量
+
+
+
+> C:\Program Files (x86)\mingw-w64\i686-6.2.0-posix-sjlj-rt_v5-rev1\mingw32\bin
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-734878fc0379e939.png?imageMogr2/auto-orient/strip|imageView2/2/w/526/format/webp)
+
+## 4.初始化，并打包
+
+接下来，我们到你的flutter项目的目录下面
+
+
+
+```bash
+hover init github.com/my-organization/flutter_bloc_super #前面的地址固定，后面写你项目的名字
+```
+
+就会出现一个go文件夹
+
+![image-20210928091320860](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928091320860.png)
+
+生成这个文件之后再执行，
+
+
+
+```undefined
+hover run
+```
+
+**最后一步大功告成**
+
+变身！！！！！
+如图的路径就是打包后生成的exe文件，双击执行，就好了。
+
+![image-20210928091457350](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928091457350.png)
+
+## 坑1
+
+如果报错goland编译报错cc1.exe: sorry, unimplemented: 64-bit mode not compiled in
+
+主要原因是本地的cc1.exe版本不是64位的，在64位环境下无法编译
+
+请下载这个、https://sourceforge.net/projects/mingw-w64/
+
+
+
+![image-20210928090948605](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928090948605.png)
