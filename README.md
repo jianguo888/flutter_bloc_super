@@ -132,7 +132,7 @@ dart pub outdated --mode=null-safety
 
 尽管我们希望你能一次性完成迁移工作，但对于大体量的应用或 package 而言并不是简单的事。如果你想只迁移部分文件，请将暂时不迁移的文件前方的绿色勾选框取消勾选。
 
-### 6.2手动迁移
+## 6.2手动迁移
 
 如果你不想使用迁移工具，你也可以手动进行迁移。
 
@@ -186,7 +186,7 @@ $ dart test       # or `flutter test`
 
 如果你需要对代码作出大量的更改，那么你可能需要重新对代码进行迁移。这时请先回滚代码更改，再运行迁移工具进行迁移。
 
-## 6.5发布
+# 7发布
 
 我们希望你完成迁移后尽快将其发布，可以作为预览版：
 
@@ -219,3 +219,102 @@ $ flutter create --platforms=windows,macos,linux .
 必须下载vs
 
 https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&rel=16
+
+可以看到build目录下已经有windows
+
+![image-20210928082949206](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928082949206.png)
+
+#### 3.hover安装和环境配置
+
+
+
+```go
+go get -u github.com/go-flutter-desktop/hover
+```
+
+稍等会hover就会出现在go语言的SDK下面的bin文件夹下
+
+
+
+
+
+![image-20210928084124073](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084124073.png)
+
+
+
+你又会发现报错：**exec: "gcc": executable file not found in %PATH%**这是缺少一个环境变量，别急，补上去，
+ [https://sourceforge.net/projects/mingw-w64/files/mingw-w64/](https://sourceforge.net/projects/mingw-w64/)
+
+![image-20210928084641518](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084641518.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-b7dac57c19c30e55.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928085519691.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-b2b7d701a6690d4f.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+
+
+![image-20210928084842376](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928084842376.png)
+
+
+
+
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-d2ab630b0dee3abe.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+
+ 安装过程会下载很多东西，都到这一步了，不要放弃，接下来配置环境变量
+
+
+
+> C:\Program Files (x86)\mingw-w64\i686-6.2.0-posix-sjlj-rt_v5-rev1\mingw32\bin
+
+![img](https:////upload-images.jianshu.io/upload_images/16428535-734878fc0379e939.png?imageMogr2/auto-orient/strip|imageView2/2/w/526/format/webp)
+
+#### 4.初始化，并打包
+
+接下来，我们到你的flutter项目的目录下面
+
+
+
+```bash
+hover init github.com/my-organization/flutter_bloc_super #前面的地址固定，后面写你项目的名字
+```
+
+就会出现一个go文件夹
+
+![image-20210928091320860](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928091320860.png)
+
+生成这个文件之后再执行，
+
+
+
+```undefined
+hover run
+```
+
+**最后一步大功告成**
+
+变身！！！！！
+如图的路径就是打包后生成的exe文件，双击执行，就好了。
+
+![image-20210928091457350](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928091457350.png)
+
+如果报错goland编译报错cc1.exe: sorry, unimplemented: 64-bit mode not compiled in
+
+主要原因是本地的cc1.exe版本不是64位的，在64位环境下无法编译
+
+请下载这个、https://sourceforge.net/projects/mingw-w64/
+
+
+
+![image-20210928090948605](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928090948605.png)
