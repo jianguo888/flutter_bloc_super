@@ -1,6 +1,8 @@
-# Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS
+# Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS,Windows
 
 Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持 Web、macOS、Android 和 iOS。 这就是为什么今天我们使用在 Web、macOS 应用、Android 和 iOS 应用上运行的 flutter 创建响应式博客主题。 此外，我们创建了一个具有自定义悬停动画的动画网络菜单。 最后，您将学习如何使用 Flutter 制作响应式应用程序。
+
+目前已新增桌面支持
 
 预览地址：http://47.117.1.68:251/#/
 
@@ -22,7 +24,7 @@ https://gitee.com/itmxs/flutter_bloc_super
 
 主分支默认空安全
 
-![image-20210926171758159](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210926171758159.png)
+![image-20210928112956758](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928112956758.png)
 
 
 
@@ -203,7 +205,7 @@ $ dart test       # or `flutter test`
 
 细心的小伙伴可能会发现,安卓有android文件夹, iOS 有ios的文件夹,但目前目录结构是没有web文件夹的,
 
-##### 1. 创建web文件夹
+### 1. 创建web文件夹
 
 输入下面的命令创建web文件
 
@@ -217,7 +219,7 @@ flutter create .
 
 ![image-20210927103240783](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103240783.png)
 
-##### 2. 打包web版本
+### 2. 打包web版本
 
 我们知道要给android手机用,需要打包apk出来, 要给iPhone手机用,需要打包ipa出来;同样的道理要给浏览器用,也需要打包web相关代码.
 
@@ -268,7 +270,8 @@ flutter build web 打开速度一般,兼容性好
 
 flutter build web --web-renderer canvaskit 打开速度最慢,兼容性好
 
-**结论**
+### 3**结论**
+
  就是使用第一种打包方式会比较好
 
 
@@ -309,3 +312,6 @@ flutter build web --web-renderer html
        }
     }
 ​```undefined
+```
+
+撒花
