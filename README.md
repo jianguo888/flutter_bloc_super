@@ -1,6 +1,10 @@
-# Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS
+# Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS,Windows
+
+[TOC]
 
 Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持 Web、macOS、Android 和 iOS。 这就是为什么今天我们使用在 Web、macOS 应用、Android 和 iOS 应用上运行的 flutter 创建响应式博客主题。 此外，我们创建了一个具有自定义悬停动画的动画网络菜单。 最后，您将学习如何使用 Flutter 制作响应式应用程序。
+
+目前已新增桌面支持
 
 预览地址：http://47.117.1.68:251/#/
 
@@ -22,7 +26,7 @@ https://gitee.com/itmxs/flutter_bloc_super
 
 主分支默认空安全
 
-![image-20210926171758159](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210926171758159.png)
+![image-20210928112956758](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928112956758.png)
 
 
 
@@ -194,7 +198,7 @@ $ dart test       # or `flutter test`
 
 如果你需要对代码作出大量的更改，那么你可能需要重新对代码进行迁移。这时请先回滚代码更改，再运行迁移工具进行迁移。
 
-## 6.5发布
+# 7发布web版
 
 我们希望你完成迁移后尽快将其发布，可以作为预览版：
 
@@ -203,7 +207,7 @@ $ dart test       # or `flutter test`
 
 细心的小伙伴可能会发现,安卓有android文件夹, iOS 有ios的文件夹,但目前目录结构是没有web文件夹的,
 
-##### 1. 创建web文件夹
+## 1. 创建web文件夹
 
 输入下面的命令创建web文件
 
@@ -217,7 +221,7 @@ flutter create .
 
 ![image-20210927103240783](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210927103240783.png)
 
-##### 2. 打包web版本
+## 2. 打包web版本
 
 我们知道要给android手机用,需要打包apk出来, 要给iPhone手机用,需要打包ipa出来;同样的道理要给浏览器用,也需要打包web相关代码.
 
@@ -268,7 +272,8 @@ flutter build web 打开速度一般,兼容性好
 
 flutter build web --web-renderer canvaskit 打开速度最慢,兼容性好
 
-**结论**
+## 3**结论**
+
  就是使用第一种打包方式会比较好
 
 
@@ -279,11 +284,11 @@ flutter build web --web-renderer html
 
 
 
-##### 坑1:  找到了index.html,用浏览器打开一片空白
+### 坑1:  找到了index.html,用浏览器打开一片空白
 
 这个属于正常的, 这个不像前端web ,html css js那套,点击index.html就能访问的.  在flutter里面是不能直接访问的,一定要放到容器里面去才能访问,如:tomcat等
 
-##### 坑2:  已经用nginx代理,用浏览器打开还是一片空白
+### 坑2:  已经用nginx代理,用浏览器打开还是一片空白
 
 那是因为文件路径引用不对.解决办法有2种
  方法1:
@@ -311,9 +316,9 @@ flutter build web --web-renderer html
 ​```undefined
 ```
 
+撒花
 
-
-# 7发布
+# 8发布windows版
 
 ![image-20210928095003619](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928095003619.png)
 
@@ -329,7 +334,7 @@ flutter build web --web-renderer html
 
 
 
-#### 1.为现有的 Flutter 应用程序添加桌面支持
+## 1.为现有的 Flutter 应用程序添加桌面支持
 
 要将桌面支持添加到现有 Flutter 项目，请从项目根目录在终端中运行以下命令：
 
@@ -355,7 +360,7 @@ https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?
 
 
 
-#### 2..创建main_desktop.dart文件
+## 2..创建main_desktop.dart文件
 
 比如我的main.dart文件是这样的
 
@@ -450,7 +455,7 @@ class MyApp extends StatelessWidget {
 
 flutter和go都是google出品，如何安装做一下不做介绍
 
-#### 3.hover安装和环境配置
+## 3.hover安装和环境配置
 
 
 
@@ -506,7 +511,7 @@ go get -u github.com/go-flutter-desktop/hover
 
 ![img](https:////upload-images.jianshu.io/upload_images/16428535-734878fc0379e939.png?imageMogr2/auto-orient/strip|imageView2/2/w/526/format/webp)
 
-#### 4.初始化，并打包
+## 4.初始化，并打包
 
 接下来，我们到你的flutter项目的目录下面
 
@@ -534,6 +539,8 @@ hover run
 如图的路径就是打包后生成的exe文件，双击执行，就好了。
 
 ![image-20210928091457350](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928091457350.png)
+
+## 坑1
 
 如果报错goland编译报错cc1.exe: sorry, unimplemented: 64-bit mode not compiled in
 
