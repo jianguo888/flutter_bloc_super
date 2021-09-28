@@ -188,6 +188,8 @@ $ dart test       # or `flutter test`
 
 # 7发布
 
+![image-20210928095003619](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928095003619.png)
+
 我们希望你完成迁移后尽快将其发布，可以作为预览版：
 
  参考文章：
@@ -200,11 +202,11 @@ $ dart test       # or `flutter test`
 
 
 
-## 为现有的 Flutter 应用程序添加桌面支持
+#### 1.为现有的 Flutter 应用程序添加桌面支持
 
 要将桌面支持添加到现有 Flutter 项目，请从项目根目录在终端中运行以下命令：
 
-*内容复制*
+
 
 ```
 $ flutter create --platforms=windows,macos,linux .
@@ -223,6 +225,103 @@ https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?
 可以看到build目录下已经有windows
 
 ![image-20210928082949206](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20210928082949206.png)
+
+
+
+#### 2..创建main_desktop.dart文件
+
+比如我的main.dart文件是这样的
+
+
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:news/screens/main/main_screen.dart';
+
+import 'constants.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false, //取消debug图标
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBgColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kBodyTextColor),
+          bodyText2: TextStyle(color: kBodyTextColor),
+          headline5: TextStyle(color: kDarkBlackColor),
+        ),
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
+```
+
+
+
+
+
+
+
+那么我的main_desktop.dart文件就是这样的
+
+```
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:news/screens/main/main_screen.dart';
+import 'package:flutter/foundation.dart' show debugDefaultTargetPlatformOverride;
+import 'constants.dart';
+
+void main() {
+debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;//这句话很关键
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false, //取消debug图标
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBgColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kBodyTextColor),
+          bodyText2: TextStyle(color: kBodyTextColor),
+          headline5: TextStyle(color: kDarkBlackColor),
+        ),
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
+```
+
+
+
+
+
+flutter和go都是google出品，如何安装做一下不做介绍
 
 #### 3.hover安装和环境配置
 
