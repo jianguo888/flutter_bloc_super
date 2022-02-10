@@ -33,7 +33,7 @@ class Socal extends StatelessWidget {
                   kDefaultPadding / (Responsive.isDesktop(context) ? 1 : 2),
             ),
           ),
-          child: Text("Let's Talk"),
+          child: Text("联系我们"),
         ),
       ],
     );

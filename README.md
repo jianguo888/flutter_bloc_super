@@ -1,3 +1,9 @@
+```
+更多代码细节见我公众号
+```
+
+![qrcod](https://luckly007.oss-cn-beijing.aliyuncs.com/image/qrcod.jpg)
+
 # Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS,Windows
 
 [TOC]
@@ -11,6 +17,11 @@ Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持
 ![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/gif.gif)
 
 ![ui](https://luckly007.oss-cn-beijing.aliyuncs.com/image/ui.png)
+
+
+
+
+
 哔哩哔哩
 
 https://www.bilibili.com/video/bv1uy4y1t7LX

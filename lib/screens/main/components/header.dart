@@ -46,7 +46,7 @@ class Header extends StatelessWidget {
                   ),
                   SizedBox(height: kDefaultPadding * 2),
                   Text(
-                    "Welcome to Our Blog",
+                    "欢迎来到坚果博客网站",
                     style: TextStyle(
                       fontSize: 32,
                       color: Colors.white,
@@ -57,7 +57,7 @@ class Header extends StatelessWidget {
                     padding:
                         const EdgeInsets.symmetric(vertical: kDefaultPadding),
                     child: Text(
-                      "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
+                      "坚果目前是华为云享专家，InfoQ签约作者，阿里云专家博主，51CTO博客首席体验官，开源项目GVA成员之一，专注于大前端技术的分享，包括Flutter,小程序,安卓，VUE，JavaScript。",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -72,7 +72,7 @@ class Header extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "Learn More",
+                            "了解更多",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,

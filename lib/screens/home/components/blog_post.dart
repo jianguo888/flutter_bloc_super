@@ -85,7 +85,7 @@ class BlogPostCard extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "Read More",
+                          "阅读更多",
                           style: TextStyle(color: kDarkBlackColor),
                         ),
                       ),
