@@ -1,8 +1,4 @@
-```
-更多代码细节见我公众号
-```
 
-![qrcod](https://luckly007.oss-cn-beijing.aliyuncs.com/image/qrcod.jpg)
 
 # Flutter  Blog Theme using Flutter | Web, macOS, Android, iOS,Windows
 
