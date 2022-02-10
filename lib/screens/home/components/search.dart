@@ -12,7 +12,7 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SidebarContainer(
-      title: "Search",
+      title: "搜索",
       child: TextField(
         onChanged: (value) {},
         decoration: InputDecoration(

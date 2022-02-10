@@ -11,23 +11,23 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SidebarContainer(
-      title: "Categories",
+      title: "目录",
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Category(
-            title: 'Artificial Intelligence',
+            title: 'Flutter基础',
+            numOfItems: 10,
+            press: () {},
+          ),
+          Category(
+            title: '鸿蒙开发',
             numOfItems: 3,
             press: () {},
           ),
           Category(
-            title: 'Augmented reality',
+            title: '小程序开发',
             numOfItems: 4,
-            press: () {},
-          ),
-          Category(
-            title: 'Development',
-            numOfItems: 10,
             press: () {},
           ),
           Category(
@@ -36,12 +36,12 @@ class Categories extends StatelessWidget {
             press: () {},
           ),
           Category(
-            title: 'Technology',
+            title: '产品经理',
             numOfItems: 12,
             press: () {},
           ),
           Category(
-            title: 'UI/UX Design',
+            title: '读书笔记',
             numOfItems: 8,
             press: () {},
           ),

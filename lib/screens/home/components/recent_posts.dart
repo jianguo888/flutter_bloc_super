@@ -11,18 +11,18 @@ class RecentPosts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SidebarContainer(
-      title: "Recent Post",
+      title: "最近发布",
       child: Column(
         children: [
           RecentPostCard(
             image: "assets/images/recent_1.png",
-            title: "Our “Secret” Formula to Online Workshops",
+            title: "Flutter2.10发布啦",
             press: () {},
           ),
           SizedBox(height: kDefaultPadding),
           RecentPostCard(
             image: "assets/images/recent_2.png",
-            title: "Digital Product Innovations from Warsaw with Love",
+            title: "HarmonyOS有三大特征，你知道吗",
             press: () {},
           ),
         ],
