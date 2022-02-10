@@ -12,7 +12,7 @@ Flutter 最近发布了 Flutter V2.5.1，其性能得到了很大提升，支持
 
 预览地址：http://47.117.1.68:251/#/
 
-![chip](C:/Users/85285/Pictures/chip.gif)
+![chip](https://luckly007.oss-cn-beijing.aliyuncs.com/image/chip.gif)
 
 ![](https://luckly007.oss-cn-beijing.aliyuncs.com/image/image-20220210135434106.png)
 
