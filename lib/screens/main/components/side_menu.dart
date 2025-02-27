@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:news/controllers/MenuController.dart';
+import 'package:news/controllers/CustomMenuController.dart';
 
 import '../../../constants.dart';
 
 class SideMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
+  final CustomMenuController _controller = Get.put(CustomMenuController());
 
   @override
   Widget build(BuildContext context) {

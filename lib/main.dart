@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kBgColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+          style: ElevatedButton.styleFrom(backgroundColor: kPrimaryColor),
         ),
         textTheme: TextTheme(
-          bodyText1: TextStyle(color: kBodyTextColor),
-          bodyText2: TextStyle(color: kBodyTextColor),
-          headline5: TextStyle(color: kDarkBlackColor),
+          bodyLarge: TextStyle(color: kBodyTextColor),
+          bodyMedium: TextStyle(color: kBodyTextColor),
+          headlineMedium: TextStyle(color: kDarkBlackColor),
         ),
       ),
       home: MainScreen(),

@@ -47,7 +47,7 @@ class BlogPostCard extends StatelessWidget {
                     SizedBox(width: kDefaultPadding),
                     Text(
                       blog.date!,
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),

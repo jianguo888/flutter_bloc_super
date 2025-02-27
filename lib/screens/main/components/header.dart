@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:news/controllers/MenuController.dart';
+import 'package:news/controllers/CustomMenuController.dart';
 import 'package:news/responsive.dart';
 
 import '../../../constants.dart';
@@ -9,7 +9,7 @@ import 'socal.dart';
 import 'web_menu.dart';
 
 class Header extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
+  final CustomMenuController _controller = Get.put(CustomMenuController());
 
   @override
   Widget build(BuildContext context) {

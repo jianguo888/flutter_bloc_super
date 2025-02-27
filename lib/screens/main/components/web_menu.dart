@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news/controllers/MenuController.dart';
+import 'package:news/controllers/CustomMenuController.dart';
 
 import '../../../constants.dart';
 
 class WebMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
+  final CustomMenuController _controller = Get.put(CustomMenuController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _WebMenuItemState extends State<WebMenuItem> {
   Color _borderColor() {
     if (widget.isActive) {
       return kPrimaryColor;
-    } else if (!widget.isActive & _isHover) {
+    } else if (!widget.isActive && _isHover) {
       return kPrimaryColor.withOpacity(0.4);
     }
     return Colors.transparent;
