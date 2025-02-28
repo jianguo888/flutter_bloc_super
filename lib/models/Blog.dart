@@ -1,3 +1,16 @@
+/**
+ * 博客数据模型
+ * 
+ * 此文件定义了博客文章的数据结构和示例数据。
+ * 
+ * @author 坚果派(NutPi)
+ * @email jianguo@nutpi.net
+ * @website https://www.nutpi.com
+ * @version 1.0.0
+ * @date 2023-01-01
+ * @copyright Copyright © 2023 坚果派(NutPi). All rights reserved.
+ */
+
 class Blog {
   final String? date, title, description, image;
 

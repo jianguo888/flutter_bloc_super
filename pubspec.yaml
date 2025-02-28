@@ -1,5 +1,5 @@
 name: news
-description: flutter2搭建的全平台自适应博客平台，适应web,ios,macos,android
+description: flutter3搭建的全平台自适应博客平台，适应web,ios,macos,android,harmonyos等平台
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
